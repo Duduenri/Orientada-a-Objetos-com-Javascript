@@ -33,6 +33,13 @@ export default class User {
         return this.#ativo
     }
 
+    set nome(novoNome) {
+        if (novoNome === '') {
+            throw new Error('Nome não pode ser vazio')
+        }
+        this.#nome = novoNome
+    }
+
 //     #montaObjUser() {
 //         return ({
 //             nome: this.#nome,
@@ -43,8 +50,7 @@ export default class User {
 //     })
 // }
     exibirInfos() {
-        const objUser = this.#montaObjUser()
-        return `${objUser.nome}, ${objUser.email}, ${objUser.nascimento}, ${objUser.role}, ${objUser.ativo}`
+        return `${this.nome}, ${this.email}, ${this.nascimento}, ${this.role}, ${this.ativo}`
     }
 }
 
